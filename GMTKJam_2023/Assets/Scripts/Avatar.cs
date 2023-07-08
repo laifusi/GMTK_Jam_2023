@@ -19,12 +19,14 @@ public class Avatar : MonoBehaviour
     public void AssignName(string nameToAssign)
     {
         avatarName = nameToAssign;
+        PlayerPrefs.SetString("AvatarName", avatarName);
     }
 
     public void AssignColor(ColorType colorToAssign)
     {
         color = colorToAssign;
         meshRenderer.material = avatarCharacteristics.GetAvatarMaterial(color);
+        PlayerPrefs.SetString("AvatarColor", color.ToString());
     }
 
     public void AssignHead(HeadType headToAssign)
@@ -36,5 +38,7 @@ public class Avatar : MonoBehaviour
 
         GameObject prefab = avatarCharacteristics.GetAvatarHead(head);
         Instantiate(prefab, headParent);
+
+        PlayerPrefs.SetString("AvatarHead", head.ToString());
     }
 }
