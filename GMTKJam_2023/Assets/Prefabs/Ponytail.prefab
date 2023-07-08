@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3141925599035983511}
   - component: {fileID: 8599401250583394807}
   - component: {fileID: 5698430934272858229}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6449998920089410386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ponytail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,11 +122,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5304784149589733072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5563507, y: 0.8159542, z: 0.049090385}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8228521705383353979}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

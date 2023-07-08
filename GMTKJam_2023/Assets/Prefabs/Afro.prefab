@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6260576934426070528}
   - component: {fileID: 7406870143687212621}
   - component: {fileID: 4973365819183972146}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6838859951706909551}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Afro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,11 +121,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8782006380495888650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5563507, y: 0.8159542, z: 0.049090385}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1001029676726150191}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

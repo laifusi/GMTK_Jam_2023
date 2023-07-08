@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Avatar : MonoBehaviour
 {
+    [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] Transform headParent;
+    [SerializeField] AvatarCharacteristics avatarCharacteristics;
+
     private string avatarName;
     private ColorType color;
     private HeadType head;
@@ -20,10 +24,17 @@ public class Avatar : MonoBehaviour
     public void AssignColor(ColorType colorToAssign)
     {
         color = colorToAssign;
+        meshRenderer.material = avatarCharacteristics.GetAvatarMaterial(color);
     }
 
     public void AssignHead(HeadType headToAssign)
     {
         head = headToAssign;
+
+        foreach (Transform child in headParent)
+            Destroy(child.gameObject);
+
+        GameObject prefab = avatarCharacteristics.GetAvatarHead(head);
+        Instantiate(prefab, headParent);
     }
 }
