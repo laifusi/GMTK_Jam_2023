@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
     {
         playerCharacter.AssignColor(TranslateColor(PlayerPrefs.GetString("AvatarColor")));
         playerCharacter.AssignComplemento(TranslateHead(PlayerPrefs.GetString("AvatarHead")));
+        jugadores.Add(playerCharacter);
     }
 
     private void InitializeEnemies()
