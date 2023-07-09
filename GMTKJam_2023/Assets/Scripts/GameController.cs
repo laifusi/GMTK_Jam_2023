@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Jugador playerCharacter;
     [SerializeField] int totalExtraAvatars;
+    [SerializeField] string[] characterNames;
 
     [SerializeField] float planeX, planeZ;
 
@@ -47,6 +48,7 @@ public class GameController : MonoBehaviour
 
     private void InitializePlayer()
     {
+        playerCharacter.name_agent = PlayerPrefs.GetString("AvatarName");
         playerCharacter.AssignColor(TranslateColor(PlayerPrefs.GetString("AvatarColor")));
         playerCharacter.AssignComplemento(TranslateHead(PlayerPrefs.GetString("AvatarHead")));
         jugadores.Add(playerCharacter);
@@ -73,6 +75,8 @@ public class GameController : MonoBehaviour
 
             avatar.AssignColor(colorId);
             avatar.AssignComplemento(headId);
+            if(characterNames.Length > i)
+                avatar.name_agent = characterNames[i];
             jugadores.Add(avatar);
 
             if(headId >= 7)
