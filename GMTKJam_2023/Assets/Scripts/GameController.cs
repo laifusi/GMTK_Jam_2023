@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class GameController : MonoBehaviour
 
     List<Agentes> jugadores = new List<Agentes>();
 
+    List<Agentes> winners = new List<Agentes>();
+
+    [SerializeField] public GameUIManager ui_info;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +35,7 @@ public class GameController : MonoBehaviour
         InitializeEnemies();
 
         Game_finished = false;
-        Timer_Game = 240;
+        Timer_Game = 60;
         Timer_Cambio_Rol = 30;
         predator_element = UpdatePredator();
         /*if (GameObject.FindGameObjectWithTag("Character"))
@@ -44,6 +49,7 @@ public class GameController : MonoBehaviour
     {
         playerCharacter.AssignColor(TranslateColor(PlayerPrefs.GetString("AvatarColor")));
         playerCharacter.AssignComplemento(TranslateHead(PlayerPrefs.GetString("AvatarHead")));
+        jugadores.Add(playerCharacter);
     }
 
     private void InitializeEnemies()
@@ -99,14 +105,17 @@ public class GameController : MonoBehaviour
             switch (Random.Range(0, 1))
             {
                 case 0:
-                    nuevo_predator = predator_actual++;
+                    nuevo_predator++;
                     break;
 
                 case 1:
-                    nuevo_predator = predator_actual--;
+                    nuevo_predator--;
                     break;
             }
         }
+
+        ui_info.UpdateSpritePersecutor(nuevo_predator);
+
         return nuevo_predator;
     }
 
@@ -118,13 +127,18 @@ public class GameController : MonoBehaviour
         {
             Timer_Game = 0;
             Game_finished = true;
+            FinishGame();
+            ChooseWinners();
         }
         
         minutes = (int)(Timer_Game / 60f);
 
         seconds = (int)(Timer_Game - minutes * 60f);
 
-        
+        ui_info.UpdateTimerGameInfo(minutes.ToString(), seconds.ToString());
+
+
+
     }
 
     void UpdateTimerTag()
@@ -137,6 +151,8 @@ public class GameController : MonoBehaviour
             predator_element = UpdatePredator();
             UpdateStatePlayers();
         }
+
+        ui_info.UpdtateTimerTag(((int)Timer_Cambio_Rol).ToString());
     }
 
     void UpdateStatePlayers()
@@ -144,6 +160,22 @@ public class GameController : MonoBehaviour
         foreach(Agentes jugador in jugadores)
         {
             jugador.UpdatePillar();
+        }
+
+        if(playerCharacter.pilla)
+            ui_info.UpdateRolPlayerInfo("PERSECUTOR");
+
+        else
+        {
+            ui_info.UpdateRolPlayerInfo("PURSUED");
+        }
+    }
+
+    void FinishGame()
+    {
+        foreach (Agentes jugador in jugadores)
+        {
+            jugador.speed = 0;
         }
     }
 
@@ -181,4 +213,16 @@ public class GameController : MonoBehaviour
         return 0;
     }
 
+    void ChooseWinners()
+    {
+
+        List<Agentes> playersOrderByScore = jugadores.OrderBy(jugador => jugador.score).ToList();
+        
+        for(int i = 0; i < 10; i++)
+        {
+            winners.Add(playersOrderByScore[i]);
+        }
+        ui_info.FillRanking(winners);
+
+    }
 }

@@ -8,12 +8,16 @@ public class Jugador : Agentes
     [SerializeField] private float verticalMove;
     [SerializeField] private CharacterController player;
 
+    [SerializeField] public GameUIManager ui_info;
+
     void Start()
     {
         player = GetComponent<CharacterController>();
         timer_perseguido = 5;
         score = 0;
         pillado = false;
+
+        ui_info = GameObject.FindWithTag("ControllerGame").GetComponent<GameUIManager>();
     }
 
     // Update is called once per frame
