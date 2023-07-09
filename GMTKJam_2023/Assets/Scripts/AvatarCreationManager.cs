@@ -80,11 +80,11 @@ public class AvatarCreationManager : MonoBehaviour
                     break;
                 case HeadType.afro:
                     avatar.AssignHead(HeadType.ponytail);
-                    headText.SetText("Ponytail");
+                    headText.SetText("Punky");
                     break;
                 case HeadType.ponytail:
                     avatar.AssignHead(HeadType.horns);
-                    headText.SetText("Horns");
+                    headText.SetText("Bunny Ears");
                     break;
                 case HeadType.horns:
                     avatar.AssignHead(HeadType.hat);
@@ -98,7 +98,7 @@ public class AvatarCreationManager : MonoBehaviour
             {
                 case HeadType.hat:
                     avatar.AssignHead(HeadType.horns);
-                    headText.SetText("Horns");
+                    headText.SetText("Bunny Ears");
                     break;
                 case HeadType.afro:
                     avatar.AssignHead(HeadType.hat);
@@ -110,7 +110,7 @@ public class AvatarCreationManager : MonoBehaviour
                     break;
                 case HeadType.horns:
                     avatar.AssignHead(HeadType.ponytail);
-                    headText.SetText("Ponytail");
+                    headText.SetText("Punky");
                     break;
             }
         }
@@ -158,11 +158,11 @@ public class AvatarCreationManager : MonoBehaviour
                 break;
             case 2:
                 avatar.AssignHead(HeadType.ponytail);
-                headText.SetText("Ponytail");
+                headText.SetText("Punky");
                 break;
             case 3:
                 avatar.AssignHead(HeadType.horns);
-                headText.SetText("Horns");
+                headText.SetText("Bunny Ears");
                 break;
         }
     }
