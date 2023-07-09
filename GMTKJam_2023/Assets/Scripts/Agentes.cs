@@ -21,17 +21,9 @@ public class Agentes : MonoBehaviour
 
     [SerializeField] protected float timer_perseguido;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] AvatarCharacteristics avatarCharacteristics;
+    [SerializeField] Transform headParent;
+    [SerializeField] MeshRenderer meshRenderer;
 
     public void UpdatePillar()
     {
@@ -123,5 +115,55 @@ public class Agentes : MonoBehaviour
                 }
             }*/
         }
+    }
+
+    public void AssignColor(int color)
+    {
+        this.color = color;
+        switch(color)
+        {
+            case 0:
+                meshRenderer.material = avatarCharacteristics.GetAvatarMaterial(ColorType.red);
+                break;
+            case 1:
+                meshRenderer.material = avatarCharacteristics.GetAvatarMaterial(ColorType.green);
+                break;
+            case 2:
+                meshRenderer.material = avatarCharacteristics.GetAvatarMaterial(ColorType.blue);
+                break;
+            case 3:
+                meshRenderer.material = avatarCharacteristics.GetAvatarMaterial(ColorType.yellow);
+                break;
+        }
+    }
+
+    public void AssignComplemento(int head)
+    {
+        complemento = head;
+
+        foreach (Transform child in headParent)
+            Destroy(child.gameObject);
+
+        GameObject prefab;
+        switch (head)
+        {
+            case 4:
+                prefab = avatarCharacteristics.GetAvatarHead(HeadType.hat);
+                break;
+            case 5:
+                prefab = avatarCharacteristics.GetAvatarHead(HeadType.afro);
+                break;
+            case 6:
+                prefab = avatarCharacteristics.GetAvatarHead(HeadType.ponytail);
+                break;
+            case 7:
+                prefab = avatarCharacteristics.GetAvatarHead(HeadType.horns);
+                break;
+            default:
+                prefab = avatarCharacteristics.GetAvatarHead(HeadType.hat);
+                break;
+        }
+        
+        Instantiate(prefab, headParent);
     }
 }
