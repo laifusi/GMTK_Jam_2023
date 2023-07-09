@@ -35,8 +35,8 @@ public class GameController : MonoBehaviour
         InitializeEnemies();
 
         Game_finished = false;
-        Timer_Game = 60;
-        Timer_Cambio_Rol = 30;
+        Timer_Game = 90;
+        Timer_Cambio_Rol = 10;
         predator_element = UpdatePredator();
         /*if (GameObject.FindGameObjectWithTag("Character"))
         {
@@ -147,7 +147,7 @@ public class GameController : MonoBehaviour
 
         if (Timer_Cambio_Rol <= 0)
         {
-            Timer_Cambio_Rol = Random.Range(10f, 25f);
+            Timer_Cambio_Rol = Random.Range(5f, 15f);
             predator_element = UpdatePredator();
             UpdateStatePlayers();
         }
@@ -216,7 +216,7 @@ public class GameController : MonoBehaviour
     void ChooseWinners()
     {
 
-        List<Agentes> playersOrderByScore = jugadores.OrderBy(jugador => jugador.score).ToList();
+        List<Agentes> playersOrderByScore = jugadores.OrderByDescending(jugador => jugador.score).ToList();
         
         for(int i = 0; i < 10; i++)
         {

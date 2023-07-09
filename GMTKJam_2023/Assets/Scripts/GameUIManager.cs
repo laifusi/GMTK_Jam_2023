@@ -105,7 +105,7 @@ public class GameUIManager : MonoBehaviour
         int last_score = winners[0].score;
         foreach(Agentes w in winners)
         {
-            if (last_score < w.score )
+            if (last_score > w.score )
                 posicion++;
             text_array[i].text = posicion + "º";
             i++;

@@ -38,7 +38,7 @@ public class Agentes : MonoBehaviour
             {
                 timer_perseguido = 5;
                 pilla = true;
-                speed = 3.5f;
+                speed = 4f;
             }
 
             else
