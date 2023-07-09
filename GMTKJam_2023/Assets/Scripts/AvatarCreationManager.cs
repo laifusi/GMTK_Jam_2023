@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class AvatarCreationManager : MonoBehaviour
 {
     [SerializeField] Avatar avatar;
-    [SerializeField] TMP_Text colorText; 
+    [SerializeField] TMP_Text colorText;
     [SerializeField] TMP_Text headText;
+    [SerializeField] Button leftRotationButton;
+    [SerializeField] float rotationSpeed = 0.5f;
+
+    private bool rotationButtonPressed;
+    private int rotationSide;
 
     private void Start()
     {
@@ -74,11 +80,11 @@ public class AvatarCreationManager : MonoBehaviour
                     break;
                 case HeadType.afro:
                     avatar.AssignHead(HeadType.ponytail);
-                    headText.SetText("Ponytail");
+                    headText.SetText("Punky");
                     break;
                 case HeadType.ponytail:
                     avatar.AssignHead(HeadType.horns);
-                    headText.SetText("Horns");
+                    headText.SetText("Bunny Ears");
                     break;
                 case HeadType.horns:
                     avatar.AssignHead(HeadType.hat);
@@ -92,7 +98,7 @@ public class AvatarCreationManager : MonoBehaviour
             {
                 case HeadType.hat:
                     avatar.AssignHead(HeadType.horns);
-                    headText.SetText("Horns");
+                    headText.SetText("Bunny Ears");
                     break;
                 case HeadType.afro:
                     avatar.AssignHead(HeadType.hat);
@@ -104,7 +110,7 @@ public class AvatarCreationManager : MonoBehaviour
                     break;
                 case HeadType.horns:
                     avatar.AssignHead(HeadType.ponytail);
-                    headText.SetText("Ponytail");
+                    headText.SetText("Punky");
                     break;
             }
         }
@@ -152,12 +158,38 @@ public class AvatarCreationManager : MonoBehaviour
                 break;
             case 2:
                 avatar.AssignHead(HeadType.ponytail);
-                headText.SetText("Ponytail");
+                headText.SetText("Punky");
                 break;
             case 3:
                 avatar.AssignHead(HeadType.horns);
-                headText.SetText("Horns");
+                headText.SetText("Bunny Ears");
                 break;
         }
     }
+
+    #region Avatar Rotation
+    private void Update()
+    {
+        if (rotationButtonPressed)
+        {
+            RotateAvatar();
+        }
+    }
+
+    public void InitializeRotation(int rotationSide)
+    {
+        rotationButtonPressed = true;
+        this.rotationSide = rotationSide;
+    }
+
+    public void EndRotation()
+    {
+        rotationButtonPressed = false;
+    }
+
+    public void RotateAvatar()
+    {
+        avatar.transform.Rotate(Vector3.up, rotationSide*rotationSpeed);
+    }
+    #endregion
 }

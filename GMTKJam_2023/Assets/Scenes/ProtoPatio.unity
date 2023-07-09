@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -164,6 +164,9 @@ MonoBehaviour:
   name_agent: Player
   pillado: 0
   timer_perseguido: 0
+  avatarCharacteristics: {fileID: 11400000, guid: 355d5b57ca3f18d4da44737bcada6125, type: 2}
+  headParent: {fileID: 300070233}
+  meshRenderer: {fileID: 151274197}
   horizontalMove: 0
   verticalMove: 0
   player: {fileID: 0}
@@ -263,6 +266,7 @@ Transform:
   m_Children:
   - {fileID: 1185290938}
   - {fileID: 1793572961}
+  - {fileID: 300070233}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -363,6 +367,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235486527}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &300070232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300070233}
+  m_Layer: 0
+  m_Name: HeadParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300070233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300070232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.803, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 151274199}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477711426
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &477711427
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -443,6 +478,9 @@ MonoBehaviour:
   name_agent: Vicente
   pillado: 0
   timer_perseguido: 0
+  avatarCharacteristics: {fileID: 0}
+  headParent: {fileID: 0}
+  meshRenderer: {fileID: 0}
   agent: {fileID: 0}
   cp: {fileID: 1329210164}
   target: {fileID: 0}
@@ -563,7 +601,11 @@ MonoBehaviour:
   Timer_Game: 0
   Timer_Cambio_Rol: 0
   predator_element: 0
-  jugadores: []
+  prefabPersonaje: {fileID: 2064806154560852425, guid: 8acc2926c96eb7f42b92a1a8e578170a, type: 3}
+  playerCharacter: {fileID: 151274193}
+  totalExtraAvatars: 40
+  planeX: 50
+  planeZ: 40
 --- !u!4 &550654323
 Transform:
   m_ObjectHideFlags: 0
@@ -600,7 +642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &742766617
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -702,6 +744,9 @@ MonoBehaviour:
   name_agent: Laia
   pillado: 0
   timer_perseguido: 0
+  avatarCharacteristics: {fileID: 0}
+  headParent: {fileID: 0}
+  meshRenderer: {fileID: 0}
   agent: {fileID: 0}
   cp: {fileID: 1825850238}
   target: {fileID: 0}
