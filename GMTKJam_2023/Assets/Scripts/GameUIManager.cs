@@ -81,11 +81,11 @@ public class GameUIManager : MonoBehaviour
                 RolPlayerImage.color = Color.green;
                 break;
 
-            case "PERSECUTOR":
+            case "CHASER":
                 RolPlayerImage.color = Color.red;
                 break;
 
-            case "CHASED":
+            case "CAUGHT":
                 RolPlayerImage.color = Color.yellow;
                 break;
         }
