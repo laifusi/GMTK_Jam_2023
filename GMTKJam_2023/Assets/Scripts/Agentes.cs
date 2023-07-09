@@ -65,6 +65,11 @@ public class Agentes : MonoBehaviour
             {
                 timer_perseguido = 5;
                 score++;
+
+                if (this.gameObject.GetComponent<Jugador>())
+                {
+                    this.gameObject.GetComponent<Jugador>().ui_info.UpdatePointsInfo(score.ToString());
+                }
             }
         }
     }
@@ -78,6 +83,11 @@ public class Agentes : MonoBehaviour
         if(this.GetComponent<Enemigo>())
         {
             this.GetComponent<Enemigo>().target = null;
+        }
+
+        if (this.GetComponent<Jugador>())
+        {
+            this.gameObject.GetComponent<Jugador>().ui_info.UpdateRolPlayerInfo("CHASED");
         }
 
         //Poner animación de pillado
@@ -102,6 +112,11 @@ public class Agentes : MonoBehaviour
                 {
 
                     this.score++;
+
+                    if(this.gameObject.GetComponent<Jugador>())
+                    {
+                        this.gameObject.GetComponent<Jugador>().ui_info.UpdatePointsInfo(score.ToString());
+                    }
 
                     collision.collider.gameObject.GetComponent<Agentes>().PilladoState();
                 }
