@@ -87,7 +87,7 @@ public class Agentes : MonoBehaviour
 
         if (this.GetComponent<Jugador>())
         {
-            this.gameObject.GetComponent<Jugador>().ui_info.UpdateRolPlayerInfo("CHASED");
+            this.gameObject.GetComponent<Jugador>().ui_info.UpdateRolPlayerInfo("CAUGHT");
         }
 
         //Poner animación de pillado

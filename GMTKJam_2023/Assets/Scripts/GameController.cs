@@ -163,7 +163,7 @@ public class GameController : MonoBehaviour
         }
 
         if(playerCharacter.pilla)
-            ui_info.UpdateRolPlayerInfo("PERSECUTOR");
+            ui_info.UpdateRolPlayerInfo("CHASER");
 
         else
         {
